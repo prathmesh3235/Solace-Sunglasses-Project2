@@ -99,6 +99,8 @@ video{
   }
   .productlistHeadh4 {
       font-size: 21px !important;
+      color: rgb(54, 79, 107);
+      
     }
 
   
