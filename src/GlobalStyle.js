@@ -99,10 +99,12 @@ video{
   }
   .productlistHeadh4 {
       font-size: 21px !important;
-      color: rgb(54, 79, 107);
-      
+      color: red;  
     }
-
+    .productlistHeadh4 h4 {
+      font-size: 21px !important;
+      color: red;  
+    }
   
   .prodDispSec {
     margin-right: auto !important;
@@ -546,10 +548,10 @@ input, textarea{
         monospace;
     }
     .card {
-      //background-color: #F8F6F4;
+      // background-color: #F8F6F4;
       border: 3px;
       border-style: groove;
-      border-color: black;
+      border-color: rgb(252, 230, 152);;
     
       height: 270px;
       width: 270px;

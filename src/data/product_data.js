@@ -5,14 +5,29 @@ const product_card = [
     price: "ab 89,95",
     farbe: "Schwarz / Gold ",
     currency: "EURO",
+    uv_filter:
+      "Die Solace Oasis Gold überzeugt mit dem eingebauten UV-Filter-UV1000 in der Stärke-sehr stark. Dieser garantiert Schutz vor Sonneneinstrahlung bis zum UV-Index 10+.",
     thumb: "./images/gold_black1.png",
     thumb2: "./images/product1.2.png",
     thumb3: "./images/product1.3.png",
+    thumb4: "./images/product1.4.jpg",
     sku: "aliexpress_clubmaster_style_gold_black",
     src: "https://sketchfab.com/models/e362552bb2ff4d73bc62f980e4b0c73f/embed?autospin=1&autostart=1",
     video: "../../src/assets/videos/product1.mp4",
     videolink:
       "https://www.youtube.com/embed/rnwzoJp1EqQ?controls=0&autoplay=1&mute=1&loop=1&playlist=rnwzoJp1EqQ",
+    uv_tag: "sehr stark",
+    UV_FilterDescription:
+      "Die Solace Oasis Gold überzeugt mit dem eingebauten UV-Filter UV1000 in der Stärke sehr stark. Dieser garantiert Schutz vor Sonneneinstrahlung bis zum UV-Index 10+.",
+    Polarisierung_tag: "vorhanden",
+    PolarisierungDescription:
+      "Polarisierende Sonnenbrillen bieten nicht nur Schutz vor schädlicher UV-Strahlung, sie reduzieren auch unangenehme Reflexionen des Sonnenlichts. Die Solace Oasis Gold ist in dieser Ausführung polarisiert.",
+    Zubehör: "Etui und Reinigungstuch",
+    ZubehörDescription:
+      "Die Solace Oasis Gold wird mit einem Etui aus Kunstleder inklusive einem Reinigungstuch geliefert, das die Brille vor Kratzern schützt. Das Etui ist in der Farbe Kastanienbraun erhältlich.",
+    Premium_tag: "Gläser",
+    Premium_description:
+      "Die Solace Oasis Gold ist mit hochwertigen und strapazierfähigen Gläsern ausgestattet. Wir garantieren für eine Langlebigkeit und einen hohen Schutz vor Kratzern. Bei Bedarf ist eine Sehstärkenanpassung der Gläser ohne Zusatzkosten möglich.",
   },
   {
     id: 2,
@@ -23,6 +38,7 @@ const product_card = [
     thumb: "./images/silver_black_1.png",
     thumb2: "./images/product1.2.png",
     thumb3: "./images/product1.3.png",
+    thumb4: "./images/product2.4.jpg",
     sku: "aliexpress_clubmaster_style_silver_black",
     src: "https://sketchfab.com/models/30ef0899dbf24ca7a831c11c542d1e36/embed?autospin=1&autostart=1",
     video: "../../src/assets/videos/product1.mp4",

@@ -1,6 +1,11 @@
-import React, {useRef,useEffect, useState} from "react";
+import React, { useRef, useEffect, useState } from "react";
 
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom"; 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
@@ -16,26 +21,25 @@ import Moreinfo from "./moreinfo";
 import Login from "./login";
 import ReactGA from "react-ga4";
 
-const TRACKING_ID = "G-G7L7Q28LTL";  
+const TRACKING_ID = "G-G7L7Q28LTL";
 ReactGA.initialize(TRACKING_ID);
 
-
-
-
 const App = () => {
-  const [userId, setUserId] = useState()
-  ReactGA.send({ hitType: "pageview", page: window.location.href, title: "Appp" });
-
-
+  const [userId, setUserId] = useState();
+  ReactGA.send({
+    hitType: "pageview",
+    page: window.location.href,
+    title: "Appp",
+  });
 
   const handleLogin = (id) => {
     setUserId(id);
     console.log("Login", id);
-  }
+  };
   const ref = useRef(null);
 
   const handleClick = () => {
-    ref.current?.scrollIntoView({behavior: 'smooth'});
+    ref.current?.scrollIntoView({ behavior: "smooth" });
   };
   const theme = {
     colors: {
@@ -60,25 +64,28 @@ const App = () => {
       mobile: "768px",
       tab: "998px",
     },
-   
   };
-    return(
-    <ThemeProvider theme={theme}> 
-    <Router>
-      <GlobalStyle />
-      {/* <Header/> */}
-      <Routes>
-      <Route path="/" element={<Login handleLogin={handleLogin} />} />
-        <Route path="/home" element={<Home userId={userId} ref={ref} />} />
-        <Route path="/thankyou" element={<Thankyoupage />} />   
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/product" element={<SingleProduct/>} />
-        <Route path="/product/moreinfo" element={<Moreinfo userId={userId}/>} />
-        <Route path="*" element={<ErrorPage/>} />
-      </Routes>
-       </Router>
-       </ThemeProvider>
-  )
+  return (
+    <ThemeProvider theme={theme}>
+      <Router>
+        <GlobalStyle />
+        {/* <Header/> */}
+        <Routes>
+          <Route path="/" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/home" element={<Home userId={userId} ref={ref} />} />
+          <Route path="/thankyou" element={<Thankyoupage />} />
+
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/product" element={<SingleProduct />} />
+          <Route
+            path="/product/moreinfo"
+            element={<Moreinfo userId={userId} />}
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
+  );
 };
 
 export default App;

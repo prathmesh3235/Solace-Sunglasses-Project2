@@ -60,11 +60,7 @@ const Moreinfo = () => {
           />{" "}
         </h2>
         <p style={{ display: openFeaturesUV ? "block" : "none" }}>
-          {" "}
-          Die {product.product_name} überzeugt mit dem eingebauten UV-Filter
-          "UV400" in der Stärke "medium".
-          <br />
-          Dieser garantiert Schutz vor Sonneneinstrahlung bis zum UV-Index 5.
+          {product.UV_FilterDescription}
         </p>
         <hr />
 

@@ -1,12 +1,12 @@
-import Carousel from 'react-bootstrap/Carousel';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import styled from 'styled-components';
+import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.min.css";
+import styled from "styled-components";
 
-function Slider({product}) {
+function Slider({ product }) {
   return (
-    <Carousel interval={2000} className='carousel'>
+    <Carousel interval={2000} className="carousel">
       <Carousel.Item>
-        <img 
+        <img
           className="d-block carousel-image"
           src={product.thumb2}
           alt="First slide"
@@ -39,6 +39,13 @@ function Slider({product}) {
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p> */}
         </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block carousel-image"
+          src={product.thumb4}
+          alt="Fourth slide"
+        />
       </Carousel.Item>
     </Carousel>
   );
