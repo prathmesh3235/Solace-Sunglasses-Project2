@@ -33,7 +33,7 @@ const Moreinfo = () => {
 
     const ref = doc(db, "users", userId); // Firebase creates this automatically
     let data = {
-      "Clicked Feature": arrayUnion(feature),
+      "Clicked Feature": arrayUnion(feature + " " + new Date()),
     };
     try {
       setDoc(ref, data, { merge: true });

@@ -24,16 +24,12 @@ function Login({ handleLogin }) {
         } else {
           // User does not exist, navigate to the home page
           const searchParams = new URLSearchParams(window.location.search);
-          navigate(
-            `/home?video=${
-              searchParams.get("video") === "true"
-            }&userId=${userId}`
-          );
+          navigate(`/home?mode=${searchParams.get("mode")}&userId=${userId}`);
 
           // Create a new user record in the database
           const data = {
             userId: userId,
-            video: searchParams.get("video") === "true",
+            mode: searchParams.get("mode"),
           };
 
           try {

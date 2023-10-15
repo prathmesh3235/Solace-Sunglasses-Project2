@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import React, {useState, useEffect} from 'react'
-import data from './data/product_data'
-import ReactGA from 'react-ga4';
+import React, { useState, useEffect } from "react";
+import data from "./data/product_data";
+import ReactGA from "react-ga4";
 import Products from "./Products";
 import { useNavigate } from "react-router-dom";
 import Virtualtryon from "./Components/Virtualtryon";
@@ -10,47 +10,59 @@ import ProductDisplay from "./Components/ProductDisplay";
 import Footer from "./Components/Footer";
 import Videosection from "./Components/Videosection";
 import SecondHeader from "./Components/SecondHeader";
+import Model3D from "./Components/Model3D";
 // import { useHistory } from "react-router-dom";
 
 const SingleProduct = () => {
-  useEffect(() =>  window.scrollTo(0, 0))
+  useEffect(() => window.scrollTo(0, 0));
   const urlParams = new URLSearchParams(window.location.search);
-  const product_id = urlParams.get('product_id')
-  const product = data.filter(product => product.id == product_id)[0];
-  const [showVideoPage, setShowVideoPage] = useState(false)
-  const [userId, setUserId] = useState(false)
-    useEffect(() => {
-      // ReactGA.send({ hitType: "pageview", page: window.location.href, title: "Single Product Page" });
-        const searchParams = new URLSearchParams(window.location.search);
-        console.log("vgarigvrs", searchParams.has("video"))
-        setShowVideoPage(searchParams.get("video") == "true")
-        setUserId(searchParams.get("userId"))
-      }, [])
+  const product_id = urlParams.get("product_id");
+  const product = data.filter((product) => product.id == product_id)[0];
+  const [showVideoPage, setShowVideoPage] = useState(false);
+  const [userId, setUserId] = useState(false);
+  useEffect(() => {
+    // ReactGA.send({ hitType: "pageview", page: window.location.href, title: "Single Product Page" });
+    const searchParams = new URLSearchParams(window.location.search);
+    setShowVideoPage(searchParams.get("mode"));
+    setUserId(searchParams.get("userId"));
+  }, []);
 
-  return(
+  return (
     <div className="abc">
       <SecondHeader />
-      
-    <div className="uppersection"> 
-     {showVideoPage ? <Videosection userId={userId} product={product} /> : <iframe src={"https://virtual-tryon-five.vercel.app/?sku=" + product.sku} frameBorder="0"
-        width="500"
-        height="500"
-        allow="camera; microphone al"/>}
-        </div>
+
+      <div className="uppersection">
+        {showVideoPage == "2" ? (
+          <Videosection userId={userId} product={product} />
+        ) : showVideoPage == "1" ? (
+          <iframe
+            src={"https://virtual-tryon-five.vercel.app/?sku=" + product.sku}
+            frameBorder="0"
+            width="500"
+            height="500"
+            allow="camera; microphone al"
+          />
+        ) : (
+          <h1>3dModel</h1>
+        )}
+      </div>
+
+      {/* <div>
+        <Model3D />
+      </div> */}
       <div className="single-product-page">
-     <div className="slider-block"> <Productpage userId={userId} product={product} /></div>
-      <div className="prod-disp">
-        <ProductDisplay userId={userId} product={product} /> 
+        <div className="slider-block">
+          {" "}
+          <Productpage userId={userId} product={product} />
+        </div>
+        <div className="prod-disp">
+          <ProductDisplay userId={userId} product={product} />
+        </div>
       </div>
-      </div>
-    <Footer/>
+      <Footer />
     </div>
-    
-  )   
+  );
 };
-
-
-  
 
 const Wrapper = styled.section`
   .container {
@@ -125,5 +137,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default SingleProduct; 
-
+export default SingleProduct;
