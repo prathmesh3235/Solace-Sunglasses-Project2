@@ -34,7 +34,9 @@ const SingleProduct = () => {
       <div className="uppersection">
         {showVideoPage == "2" ? (
           <Videosection userId={userId} product={product} />
-        ) : showVideoPage == "1" ? (
+        ) : showVideoPage == "3" ? (
+          <h1>3dModel</h1>
+        ) : (
           <iframe
             src={"https://virtual-tryon-five.vercel.app/?sku=" + product.sku}
             frameBorder="0"
@@ -42,8 +44,6 @@ const SingleProduct = () => {
             height="500"
             allow="camera; microphone al"
           />
-        ) : (
-          <h1>3dModel</h1>
         )}
       </div>
 
