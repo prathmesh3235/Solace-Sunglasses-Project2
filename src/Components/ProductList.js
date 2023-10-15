@@ -24,18 +24,19 @@ function Cell({ shoe, image, userId }) {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    console.log("vgarigvrs", searchParams.has("video"));
-    setShowVideoPage(searchParams.get("video") == "true");
+    setShowVideoPage(searchParams.get("mode"));
   }, []);
   const handleClick = async () => {
     const ref = doc(db, "users", userId); // Firebase creates this automatically
     let data = {
-      "Clicked Weitere Details": arrayUnion(shoe.product_name),
+      "Clicked Weitere Details": arrayUnion(
+        shoe.product_name + " " + new Date()
+      ),
     };
     try {
       await setDoc(ref, data, { merge: true });
       navigate(
-        `/product?video=${showVideoPage}&product_id=${shoe.id}&userId=${userId}`
+        `/product?mode=${showVideoPage}&product_id=${shoe.id}&userId=${userId}`
       );
     } catch (err) {
       console.log(err);

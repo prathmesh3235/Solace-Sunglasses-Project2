@@ -101,10 +101,7 @@ video{
       font-size: 21px !important;
       color: red;  
     }
-    .productlistHeadh4 h4 {
-      font-size: 21px !important;
-      color: red;  
-    }
+    
   
   .prodDispSec {
     margin-right: auto !important;
@@ -722,4 +719,9 @@ input, textarea{
         height: 100%;
         width: 100%;
      }
+     .productlistHeadh4 {
+      font-size: 21px !important;
+      color: rgb(54, 79, 107);  
+      
+    }
 `;

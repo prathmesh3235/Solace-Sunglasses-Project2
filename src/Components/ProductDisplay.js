@@ -13,7 +13,9 @@ const ProductDisplay = ({ product, userId }) => {
   const handleClick = () => {
     const ref = doc(db, "users", userId); // Firebase creates this automatically
     let data = {
-      "Clicked More Information": arrayUnion(product.product_name),
+      "Clicked More Information": arrayUnion(
+        product.product_name + " " + new Date()
+      ),
     };
     try {
       setDoc(ref, data, { merge: true });

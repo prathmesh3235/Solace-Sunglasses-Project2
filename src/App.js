@@ -20,6 +20,7 @@ import Footer from "./Components/Footer";
 import Moreinfo from "./moreinfo";
 import Login from "./login";
 import ReactGA from "react-ga4";
+import Model3D from "./Components/Model3D";
 
 const TRACKING_ID = "G-G7L7Q28LTL";
 ReactGA.initialize(TRACKING_ID);
@@ -65,6 +66,13 @@ const App = () => {
       tab: "998px",
     },
   };
+  const image = [
+    "images/3dproduct1.1.png",
+    "images/3dproduct1.2.png",
+    "images/3dproduct1.3.png",
+    "images/3dproduct1.4.png",
+    "images/3dproduct1.5.png",
+  ];
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -74,7 +82,7 @@ const App = () => {
           <Route path="/" element={<Login handleLogin={handleLogin} />} />
           <Route path="/home" element={<Home userId={userId} ref={ref} />} />
           <Route path="/thankyou" element={<Thankyoupage />} />
-
+          <Route path="/3dmodel" element={<Model3D image={image} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product" element={<SingleProduct />} />
           <Route
