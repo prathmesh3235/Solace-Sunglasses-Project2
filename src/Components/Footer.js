@@ -1,23 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
 import { FaDiscord, FaInstagram, FaYoutube } from "react-icons/fa";
 
-const Footer = ({url}) => {
+const Footer = ({ url }) => {
   const handleClick = () => {
-  
-    const element = document.getElementById('header');
+    const element = document.getElementById("header");
     if (element) {
       // 👇 Will scroll smoothly to the top of the next section
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div>
       <Wrapper>
-        <section className="contact-short">
+        {/* <section className="contact-short">
           <div className="grid grid-two-column">
             <div>
               <h3>Ready to Shop?</h3>
@@ -30,20 +29,22 @@ const Footer = ({url}) => {
               </Button>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* footer section */}
 
         <footer>
           <div className="container grid grid-three-column">
             <div className="footer-about">
               <h3>Solace Sunglasses</h3>
-              <p>Rosenstraße 12 
-                <br/>
-                96512 Neustadt 
-                <br/>
-                Bayern, Deutschland </p>
+              <p>
+                Rosenstraße 12
+                <br />
+                96512 Neustadt
+                <br />
+                Bayern, Deutschland{" "}
+              </p>
             </div>
-           
+
             <div className="footer-social">
               <h3>Follow Us</h3>
               <div className="footer-social--icons">
@@ -54,9 +55,7 @@ const Footer = ({url}) => {
                   <FaInstagram className="icons" />
                 </div>
                 <div>
-                  <a
-                    href="https://www.youtube.com"
-                    target="_blank">
+                  <a href="https://www.youtube.com" target="_blank">
                     <FaYoutube className="icons" />
                   </a>
                 </div>
@@ -73,9 +72,7 @@ const Footer = ({url}) => {
           <div className="footer-bottom--section">
             <hr />
             <div className="container grid grid-two-column ">
-              <p>
-                @{new Date().getFullYear()} Solace . All Rights Reserved
-              </p>
+              <p>@{new Date().getFullYear()} Solace . All Rights Reserved</p>
               <div>
                 <p>FAQ</p>
                 <p>Impressum</p>
@@ -109,7 +106,7 @@ const Wrapper = styled.section`
   }
 
   footer {
-    padding: 14rem 0 5rem 0;
+    padding: 6rem 0 5rem 0;
     background-color: ${({ theme }) => theme.colors.footer_bg};
     h3 {
       color: ${({ theme }) => theme.colors.hr};
@@ -122,9 +119,9 @@ const Wrapper = styled.section`
       display: flex;
       gap: 2rem;
 
-    .footer-social{
+      .footer-social {
         justify-content: center;
-    }  
+      }
 
       div {
         padding: 1rem;
