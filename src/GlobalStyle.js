@@ -218,9 +218,7 @@ body {
   
   
     background-color: var(--main-top-background-color);
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 30px;
+    margin:30px;
     padding: 30px;
     box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
     border-radius: .15rem;
@@ -563,8 +561,8 @@ input, textarea{
     }
     
     .card: hover{
-      transform: scale(1.3);
-      transition: transform .5s ease;
+      transform: scale(1.1);
+      transition: transform .4s ease;
 
     }
     .card-content{
@@ -720,7 +718,7 @@ input, textarea{
         width: 100%;
      }
      .productlistHeadh4 {
-      font-size: 21px !important;
+      font-size: 35px !important;
       color: rgb(54, 79, 107);  
       
     }

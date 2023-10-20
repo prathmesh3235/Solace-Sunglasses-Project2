@@ -10,6 +10,8 @@ import ProductDisplay from "./Components/ProductDisplay";
 import Footer from "./Components/Footer";
 import Videosection from "./Components/Videosection";
 import SecondHeader from "./Components/SecondHeader";
+import { doc, setDoc } from "@firebase/firestore";
+import { db } from "./services/firebase";
 import Model3D from "./Components/Model3D";
 // import { useHistory } from "react-router-dom";
 
@@ -20,6 +22,14 @@ const SingleProduct = () => {
   const product = data.filter((product) => product.id == product_id)[0];
   const [showVideoPage, setShowVideoPage] = useState(false);
   const [userId, setUserId] = useState(false);
+  const image = [
+    "images/3dproduct1.1.png",
+    "images/3dproduct1.2.png",
+    "images/3dproduct1.3.png",
+    "images/3dproduct1.4.png",
+    "images/3dproduct1.5.png",
+  ];
+
   useEffect(() => {
     // ReactGA.send({ hitType: "pageview", page: window.location.href, title: "Single Product Page" });
     const searchParams = new URLSearchParams(window.location.search);
@@ -35,7 +45,7 @@ const SingleProduct = () => {
         {showVideoPage == "2" ? (
           <Videosection userId={userId} product={product} />
         ) : showVideoPage == "3" ? (
-          <h1>3dModel</h1>
+          <Model3D image={image} />
         ) : (
           <iframe
             src={"https://virtual-tryon-five.vercel.app/?sku=" + product.sku}

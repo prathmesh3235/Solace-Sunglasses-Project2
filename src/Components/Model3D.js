@@ -7,7 +7,7 @@ const Model3D = ({ image }) => {
     background-repeat: no-repeat;
     height: 100%;
     .list li {
-      width: 600px;
+      width: 20%;
       height: 800px;
       display: flex;
       justify-content: center;
@@ -15,30 +15,24 @@ const Model3D = ({ image }) => {
     .list {
       display: flex;
       flex-direction: row;
-      width: 100%;
+      max-width: 900px;
       justify-content: space-around;
     }
   `;
   return (
     <Wrapper
-      style={{ backgroundImage: `url(${image[section]})`, height: "1000px" }}
+      style={{
+        backgroundImage: `url(${image ? image[section] : ""})`,
+        height: "800px",
+        width: "900px",
+      }}
     >
       <ul className="list">
-        <li value={0} onMouseEnter={(e) => setSection(e.target.value)}>
-          d;vjs;r
-        </li>
-        <li value={1} onMouseEnter={(e) => setSection(e.target.value)}>
-          lkskfnvkls
-        </li>
-        <li value={2} onMouseEnter={(e) => setSection(e.target.value)}>
-          lfknvsd
-        </li>
-        <li value={3} onMouseEnter={(e) => setSection(e.target.value)}>
-          lfnlvsnf
-        </li>
-        <li value={4} onMouseEnter={(e) => setSection(e.target.value)}>
-          lfnlvsnf
-        </li>
+        <li value={0} onMouseEnter={(e) => setSection(e.target.value)}></li>
+        <li value={1} onMouseEnter={(e) => setSection(e.target.value)}></li>
+        <li value={2} onMouseEnter={(e) => setSection(e.target.value)}></li>
+        <li value={3} onMouseEnter={(e) => setSection(e.target.value)}></li>
+        <li value={4} onMouseEnter={(e) => setSection(e.target.value)}></li>
       </ul>
     </Wrapper>
   );
