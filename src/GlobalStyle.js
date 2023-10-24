@@ -470,6 +470,7 @@ input, textarea{
   .uppersection{
     text-align: center;
     margin: 20px;
+    margin-top:14rem;
   }  
   .product-page-three{
 
@@ -488,6 +489,7 @@ input, textarea{
   .uppersection{
     text-align: center;
     margin: 20px;
+    margin-top:14rem
   }  
   .product-page-three{
     margin-top: 80px;
@@ -660,11 +662,20 @@ input, textarea{
       }
     }
 
+    .secondHeader{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100; 
+    }
     .moreinfopage{
       align-items: center;
       display: flex;
       flex-direction: column;
-
+      h1{
+        margin-top: 9rem;
+      }
       p{
         color: black;
         text-align: center;
@@ -672,6 +683,7 @@ input, textarea{
         font-weight:semi-bold;
         margin-right: 10px;
         margin-left: 10px;
+        width: 80%;
       }
     }
     .thankyou{
@@ -682,6 +694,7 @@ input, textarea{
     .tyh2{
       height:auto;
       margin:20px;
+      margin-top:14rem;
       font-size:95px;
       text-align: center;
     }
