@@ -39,13 +39,15 @@ const SingleProduct = () => {
 
   return (
     <div className="abc">
-      <SecondHeader />
+      <div className="secondHeader">
+        <SecondHeader />
+      </div>
 
       <div className="uppersection">
         {showVideoPage == "2" ? (
           <Videosection userId={userId} product={product} />
         ) : showVideoPage == "3" ? (
-          <Model3D image={image} />
+          <Model3D product={product_id} />
         ) : (
           <iframe
             src={"https://virtual-tryon-five.vercel.app/?sku=" + product.sku}

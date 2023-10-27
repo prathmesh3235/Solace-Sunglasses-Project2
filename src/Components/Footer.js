@@ -64,7 +64,7 @@ const Footer = ({ url }) => {
             <div className="footer-contact">
               <h3>Kontakt: +49 162 9234567</h3>
               {/* <h3>+49 162 9234567</h3> */}
-              <h3>E-mail: solace@info.com</h3>
+              <h3>E-Mail: solace@info.com</h3>
               {/* <h3> solace@info.com</h3> */}
             </div>
           </div>
