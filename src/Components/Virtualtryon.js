@@ -18,7 +18,7 @@ const Virtualtryon = ({ userId, product }) => {
   return (
     <Wrapper>
       <div className="secondHeader">
-        <SecondHeader />
+        <SecondHeader userId={userId} />
       </div>
       <div className="virtual-container">
         {/* <h2 className="virtual-text"> <BsEmojiSunglasses /> Probiere {product.product_name} virtuell an</h2> */}

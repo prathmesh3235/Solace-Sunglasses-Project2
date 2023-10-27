@@ -40,7 +40,7 @@ const SingleProduct = () => {
   return (
     <div className="abc">
       <div className="secondHeader">
-        <SecondHeader />
+        <SecondHeader userId={userId} />
       </div>
 
       <div className="uppersection">

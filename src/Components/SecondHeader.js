@@ -4,20 +4,39 @@ import { NavLink } from "react-router-dom";
 import Nav from "./Nav";
 import IMG from "../assets/Logo_SOLACE.png";
 import { BsCartCheckFill } from "react-icons/bs";
-import { doc, setDoc } from "@firebase/firestore";
+import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "../services/firebase";
+import products from "../data/product_data";
 
-const SecondHeader = () => {
+const SecondHeader = ({ userId }) => {
   // const searchParams = new URLSearchParams(window.location.search);
   // const userId = searchParams.get("userId");
   // const searchParams = new URLSearchParams(window.location.search);
-  let userId;
   let showVideoPage;
+  let productId;
+  let product;
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    userId = searchParams.get("userId");
     showVideoPage = searchParams.get("mode");
+    productId = searchParams.get("product_id");
+    product = products.filter((product) => product.id === productId)[0];
   }, []);
+  const handleClick = () => {
+    if (userId) {
+      console.log("handleClick Jetzt Kaufen", userId);
+      const ref = doc(db, "users", userId); // Firebase creates this automatically
+      let data = {
+        "Clicked Jetzt Kaufen": arrayUnion(
+          product.product_name + " " + new Date()
+        ),
+      };
+      try {
+        setDoc(ref, data, { merge: true });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
   return (
     <MainHeader2 id="header">
       <NavLink to={`/home?mode=${showVideoPage}&userId=${userId}`}>
@@ -32,17 +51,7 @@ const SecondHeader = () => {
       </NavLink>
       <div>
         <NavLink
-          onClick={() => {
-            const ref = doc(db, "users", userId); // Firebase creates this automatically
-            let data = {
-              "Clicked Cart": true,
-            };
-            try {
-              setDoc(ref, data, { merge: true });
-            } catch (err) {
-              console.log(err);
-            }
-          }}
+          onClick={handleClick}
           to="/thankyou"
           className="navbar-link-cart"
         >

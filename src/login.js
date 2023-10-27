@@ -19,7 +19,7 @@ function Login({ handleLogin }) {
         if (userDoc.exists()) {
           // User already exists, prevent login
           alert(
-            "User already exists in the database. Please use a different ID."
+            "Dieser Probandencode exitiert bereits. Bitte geben Sie stattdessen Ihre Initialen und ihre Geburtsjahr (z.B. LM1994) ein"
           );
         } else {
           // User does not exist, navigate to the home page

@@ -45,7 +45,7 @@ const Moreinfo = () => {
   return (
     <Wrapper>
       <div className="secondHeader">
-        <SecondHeader />
+        <SecondHeader userId={userId} />
       </div>
       <div id="top" className="moreinfopage">
         <hr />

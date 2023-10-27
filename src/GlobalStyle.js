@@ -469,8 +469,9 @@ input, textarea{
     }
   .uppersection{
     text-align: center;
-    margin: 20px;
     margin-top:14rem;
+    margin:auto;
+    width:825px;
   }  
   .product-page-three{
 
@@ -488,11 +489,12 @@ input, textarea{
   }
   .uppersection{
     text-align: center;
-    margin: 20px;
+    margin:auto;
     margin-top:14rem
+    
   }  
   .product-page-three{
-    margin-top: 80px;
+    // margin-top: 80px;
     text-align: center;
   }
   .threeprod{

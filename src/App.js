@@ -66,13 +66,6 @@ const App = () => {
       tab: "998px",
     },
   };
-  const image = [
-    "images/3dproduct1.1.png",
-    "images/3dproduct1.2.png",
-    "images/3dproduct1.3.png",
-    "images/3dproduct1.4.png",
-    "images/3dproduct1.5.png",
-  ];
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -82,7 +75,7 @@ const App = () => {
           <Route path="/" element={<Login handleLogin={handleLogin} />} />
           <Route path="/home" element={<Home userId={userId} ref={ref} />} />
           <Route path="/thankyou" element={<Thankyoupage />} />
-          <Route path="/3dmodel" element={<Model3D image={image} />} />
+          <Route path="/3dmodel" element={<Model3D product={1} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product" element={<SingleProduct />} />
           <Route
