@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import product_card from "../data/product_data";
-import ReactGA from "react-ga4";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "../services/firebase";

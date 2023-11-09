@@ -4,7 +4,6 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { BsDot } from "react-icons/bs";
 import { Button } from "../styles/Button";
 import { useNavigate } from "react-router-dom";
-import ReactGA from "react-ga4";
 import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "../services/firebase";
 

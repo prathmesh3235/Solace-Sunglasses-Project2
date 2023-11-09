@@ -7,16 +7,12 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Home from "./Home";
-import About from "./About";
 import Contact from "./Contact";
 import Thankyoupage from "./Thankyoupage";
 import SingleProduct from "./SingleProduct";
 import ErrorPage from "./ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
-import Header from "./Components/Header";
-import HeroSection from "./Components/LandingPage";
-import Footer from "./Components/Footer";
 import Moreinfo from "./moreinfo";
 import Login from "./login";
 import ReactGA from "react-ga4";

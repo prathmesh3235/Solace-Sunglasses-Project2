@@ -471,7 +471,7 @@ input, textarea{
     text-align: center;
     margin-top:14rem;
     margin:auto;
-    width:825px;
+    // width:825px;
   }  
   .product-page-three{
 
@@ -556,10 +556,10 @@ input, textarea{
       width: 270px;
       font-size: 15px;
       text-decoration-color: aliceblue;
-      margin-right: 5rem;
+      // margin-right: 5rem;
       padding: 10px;
       
-      margin-top: 50px;
+      margin-top: 80px;
       overflow-wrap: normal;
     
     }
@@ -672,6 +672,9 @@ input, textarea{
       z-index: 100; 
     }
     .moreinfopage{
+      padding-right:1rem;
+      padding-left:1rem;
+      text-align: center;
       align-items: center;
       display: flex;
       flex-direction: column;

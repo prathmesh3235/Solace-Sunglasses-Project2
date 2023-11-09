@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
-import Nav from "./Components/Nav";
 import SecondHeader from "./Components/SecondHeader";
 import Footer from "./Components/Footer";
 import styled from "styled-components";
 import data from "./data/product_data";
 import { AiOutlinePlus } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
 import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "./services/firebase";
 
@@ -22,11 +20,53 @@ const Moreinfo = () => {
   const product_id = urlParams.get("product_id");
   const userId = urlParams.get("userId");
   const product = data.filter((product) => product.id == product_id)[0];
+
   // const [openFeatures, setOpenFeatures] = useState("")
   const [openFeaturesUV, setOpenFeaturesUV] = useState(false);
   const [openFeaturesPOL, setOpenFeaturesPOL] = useState(false);
   const [openFeaturesZU, setOpenFeaturesZU] = useState(false);
   const [openFeaturesSEH, setOpenFeaturesSEH] = useState(false);
+  const [pageStartTime, setPageStartTime] = useState(0);
+  const handleJetztKaufenClick = (data) => {
+    const ref = doc(db, "users", userId);
+    try {
+      setDoc(
+        ref,
+        { "Clicked Jetzt Kaufen": arrayUnion(data) },
+        { merge: true }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  // Record the time when the component mounts as page start time
+
+  useEffect(() => {
+    setPageStartTime(Date.now());
+
+    return () => {
+      // Calculate the time spent on the page
+      const pageEndTime = Date.now();
+      const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000; // Calculate time spent in seconds
+
+      // Update Firebase Firestore with the time spent
+      const userRef = doc(db, "users", userId);
+      setDoc(
+        userRef,
+        { timeSpentOnMoreinfo: timeSpentInSeconds },
+        { merge: true }
+      )
+        .then(() => {
+          console.log("Time spent on Moreinfo page saved in Firestore");
+        })
+        .catch((error) => {
+          console.error(
+            "Error saving time spent on Moreinfo page in Firestore:",
+            error
+          );
+        });
+    };
+  }, [userId, pageStartTime]);
 
   const handleClick = (feature) => {
     console.log("handleClick", feature, userId);
@@ -45,7 +85,10 @@ const Moreinfo = () => {
   return (
     <Wrapper>
       <div className="secondHeader">
-        <SecondHeader userId={userId} />
+        <SecondHeader
+          userId={userId}
+          onClickJetztKaufen={handleJetztKaufenClick}
+        />
       </div>
       <div id="top" className="moreinfopage">
         <hr />

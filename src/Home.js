@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import HeroSection from "./Components/LandingPage";
-import ProductDisplay from "./Components/ProductDisplay";
-import Virtualtryon from "./Components/Virtualtryon";
 import ProductList from "./Components/ProductList";
-import App from "./App";
 import Header from "./Components/Header";
-import ReactGA from "react-ga4";
 import Footer from "./Components/Footer";
 import { doc, setDoc } from "@firebase/firestore";
 import { db } from "./services/firebase";
@@ -41,7 +36,7 @@ const Home = ({ ref }) => {
           );
         });
     };
-  }, [userId, pageStartTime]);
+  }, []);
 
   const data = {
     name: "Sunny",

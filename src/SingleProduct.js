@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import data from "./data/product_data";
-import ReactGA from "react-ga4";
-import Products from "./Products";
-import { useNavigate } from "react-router-dom";
-import Virtualtryon from "./Components/Virtualtryon";
 import Productpage from "./Components/Productpage";
 import ProductDisplay from "./Components/ProductDisplay";
 import Footer from "./Components/Footer";
@@ -13,15 +9,14 @@ import SecondHeader from "./Components/SecondHeader";
 import { doc, setDoc } from "@firebase/firestore";
 import { db } from "./services/firebase";
 import Model3D from "./Components/Model3D";
-// import { useHistory } from "react-router-dom";
 
 const SingleProduct = () => {
-  useEffect(() => window.scrollTo(0, 0));
   const urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get("product_id");
   const product = data.filter((product) => product.id == product_id)[0];
   const [showVideoPage, setShowVideoPage] = useState(false);
   const [userId, setUserId] = useState(false);
+  const [pageStartTime, setPageStartTime] = useState(0);
   const image = [
     "images/3dproduct1.1.png",
     "images/3dproduct1.2.png",
@@ -31,48 +26,85 @@ const SingleProduct = () => {
   ];
 
   useEffect(() => {
-    // ReactGA.send({ hitType: "pageview", page: window.location.href, title: "Single Product Page" });
+    // Analytics tracking for Single Product Page
     const searchParams = new URLSearchParams(window.location.search);
     setShowVideoPage(searchParams.get("mode"));
     setUserId(searchParams.get("userId"));
+    // You can add more tracking here if needed
   }, []);
 
+  useEffect(() => {
+    return async () => {
+      // Record the time when the component mounts as the page start time
+      setPageStartTime(Date.now());
+
+      // Set up a cleanup function to calculate and save the time spent when the component unmounts
+
+      // Calculate the time spent on the page
+      const pageEndTime = Date.now();
+      const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000;
+      try {
+        const userRef = doc(db, "users", userId);
+        await setDoc(
+          userRef,
+          { timeSpentOnSingleProduct: timeSpentInSeconds },
+          { merge: true }
+        );
+      } catch (error) {
+        console.log(
+          "Error saving time spent on Single Product page in Firestore:",
+          error
+        );
+      }
+    };
+  }, [userId, pageStartTime]);
+
   return (
-    <div className="abc">
-      <div className="secondHeader">
-        <SecondHeader userId={userId} />
-      </div>
-
-      <div className="uppersection">
-        {showVideoPage == "2" ? (
-          <Videosection userId={userId} product={product} />
-        ) : showVideoPage == "3" ? (
-          <Model3D product={product_id} />
-        ) : (
-          <iframe
-            src={"https://virtual-tryon-five.vercel.app/?sku=" + product.sku}
-            frameBorder="0"
-            width="500"
-            height="500"
-            allow="camera; microphone al"
-          />
-        )}
-      </div>
-
-      {/* <div>
-        <Model3D />
-      </div> */}
-      <div className="single-product-page">
-        <div className="slider-block">
-          {" "}
-          <Productpage userId={userId} product={product} />
+    <Wrapper>
+      <div className="abc">
+        <div className="secondHeader">
+          <SecondHeader userId={userId} />
         </div>
-        <div className="prod-disp">
-          <ProductDisplay userId={userId} product={product} />
+
+        <div className="uppersection">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {showVideoPage == "2" ? (
+              <Videosection userId={userId} product={product} />
+            ) : showVideoPage == "3" ? (
+              <Model3D product={product_id} />
+            ) : (
+              <iframe
+                src={
+                  "https://virtual-tryon-five.vercel.app/?sku=" + product.sku
+                }
+                title="Virtual Try On"
+                frameBorder="0"
+                width="500"
+                height="500"
+                allow="camera; microphone al"
+              />
+            )}
+          </div>
         </div>
+
+        <div className="single-product-page">
+          <div className="slider-block">
+            {" "}
+            <Productpage userId={userId} product={product} />
+          </div>
+          <div className="prod-disp">
+            <ProductDisplay userId={userId} product={product} />
+          </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Wrapper>
   );
 };
 

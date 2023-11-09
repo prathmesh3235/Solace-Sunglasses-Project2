@@ -1,60 +1,75 @@
 import React from "react";
 import styled from "styled-components";
-import {AiOutlineArrowRight} from 'react-icons/ai'
-import {BsDot} from 'react-icons/bs'
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { BsDot } from "react-icons/bs";
 
 import { Button } from "./styles/Button";
 
-const Products = ({onClickMoreInfo}) => {
-  // const handleClick = () => {
-  //   console.log("clicked on more information")
-  //   ReactGA.event({
-  //     category: "clicked More Information",
-  //     action: userId,
-  //    });
-  // }
-  return(
+const Products = ({ onClickMoreInfo }) => {
+  return (
     <Wrapper>
-    <h2 className="heading"> Product 1</h2>
-    <div style={{display: 'flex', justifyContent: 'space-evenly', marginTop: '50px', marginBottom:'50px'}}>
-    <img src="images/sunnyclubmaster.jpeg" alt="hero-section-photo" className="img-style"/>
-    <div className='display-info'> 
-     <h2> SUNNY CLUBMASTER</h2> 
-     <ul className="product-info">
-    <li className="product-info-i">  
-     <h3> <AiOutlineArrowRight/> 149€ (incl. shipping) </h3>
-    </li>
-    <li className="product-info-i">
-     <h3><AiOutlineArrowRight/> Color: Gold / Gray Green </h3>
-    </li>
-    <li className="product-info-i">
-      
-     <h3> <BsDot/> Material: Metal </h3>
-    </li>
-    <li className="product-info-i">
-      
-     <h3><AiOutlineArrowRight/> Delivery in 2-4 working days </h3>
-    </li>
-    <li className="product-info-i">
-      
-     <h3><AiOutlineArrowRight/> Extra Feature One </h3>
-    </li>
-    <li className="product-info-i">
-      
-     <h3><AiOutlineArrowRight/> Extra Feature Two </h3>
-    </li>
-    <li className="product-info-i">  
-     <h3>  <Button onClick={onClickMoreInfo}> More Information </Button> </h3>
-    </li>
-    
-  </ul>
-    </div>
-  </div>
-
-  
-  </Wrapper>
-  
-  
+      <h2 className="heading"> Product 1</h2>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginTop: "50px",
+          marginBottom: "50px",
+        }}
+      >
+        <img
+          src="images/sunnyclubmaster.jpeg"
+          alt="hero-section-photo"
+          className="img-style"
+        />
+        <div className="display-info">
+          <h2> SUNNY CLUBMASTER</h2>
+          <ul className="product-info">
+            <li className="product-info-i">
+              <h3>
+                {" "}
+                <AiOutlineArrowRight /> 149€ (incl. shipping){" "}
+              </h3>
+            </li>
+            <li className="product-info-i">
+              <h3>
+                <AiOutlineArrowRight /> Color: Gold / Gray Green{" "}
+              </h3>
+            </li>
+            <li className="product-info-i">
+              <h3>
+                {" "}
+                <BsDot /> Material: Metal{" "}
+              </h3>
+            </li>
+            <li className="product-info-i">
+              <h3>
+                <AiOutlineArrowRight /> Delivery in 2-4 working days{" "}
+              </h3>
+            </li>
+            <li className="product-info-i">
+              <h3>
+                <AiOutlineArrowRight /> Extra Feature One{" "}
+              </h3>
+            </li>
+            <li className="product-info-i">
+              <h3>
+                <AiOutlineArrowRight /> Extra Feature Two{" "}
+              </h3>
+            </li>
+            <li className="product-info-i">
+              <h3>
+                {" "}
+                <Button onClick={onClickMoreInfo}>
+                  {" "}
+                  More Information{" "}
+                </Button>{" "}
+              </h3>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Wrapper>
   );
 };
 

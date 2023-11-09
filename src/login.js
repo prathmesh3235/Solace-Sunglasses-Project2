@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { db } from "./services/firebase";
 
@@ -19,7 +17,7 @@ function Login({ handleLogin }) {
         if (userDoc.exists()) {
           // User already exists, prevent login
           alert(
-            "Dieser Probandencode exitiert bereits. Bitte geben Sie stattdessen Ihre Initialen und ihre Geburtsjahr (z.B. LM1994) ein"
+            "Dieser Probandencode exitiert bereits. Bitte geben Sie stattdessen Ihre Initialen und ihre Hausnummer (z.B. LM06) ein."
           );
         } else {
           // User does not exist, navigate to the home page
