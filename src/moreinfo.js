@@ -28,6 +28,7 @@ const Moreinfo = () => {
   const [openFeaturesSEH, setOpenFeaturesSEH] = useState(false);
   const [pageStartTime, setPageStartTime] = useState(0);
   const handleJetztKaufenClick = (data) => {
+    console.log("check cart button");
     const ref = doc(db, "users", userId);
     try {
       setDoc(
@@ -36,6 +37,7 @@ const Moreinfo = () => {
         { merge: true }
       );
     } catch (err) {
+      console.log("error cart button");
       console.log(err);
     }
   };

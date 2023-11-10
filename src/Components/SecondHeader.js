@@ -1,24 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { BsCartCheckFill } from "react-icons/bs";
 import products from "../data/product_data";
 
 const SecondHeader = ({ userId, onClickJetztKaufen }) => {
-  let showVideoPage;
-  let productId;
-  let product;
+  const [showVideoPage, setShowVideoPage] = useState("null");
+  const [productId, setProductId] = useState("null");
+  const [product, setProduct] = useState("null");
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    showVideoPage = searchParams.get("mode");
-    productId = searchParams.get("product_id");
-    product = products.filter((product) => product.id === productId)[0];
+    console.log("searchParams", searchParams.get("product_id"));
+    setShowVideoPage(searchParams.get("mode"));
+    setProductId(searchParams.get("product_id"));
+    // setProduct(products.filter((product) => product.id == productId)[0]);
   }, []);
 
+  useEffect(() => {
+    setProduct(products.filter((product) => product.id == productId)[0]);
+  }, [productId]);
+
   const handleClick = () => {
+    console.log("handleClick Jetzt Kaufen", product);
     if (userId) {
-      console.log("handleClick Jetzt Kaufen", userId);
       // Update the database
       onClickJetztKaufen(product.product_name + " " + new Date());
     }

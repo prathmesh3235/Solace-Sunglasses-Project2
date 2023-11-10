@@ -6,16 +6,32 @@ import ProductDisplay from "./Components/ProductDisplay";
 import Footer from "./Components/Footer";
 import Videosection from "./Components/Videosection";
 import SecondHeader from "./Components/SecondHeader";
-import { doc, setDoc } from "@firebase/firestore";
+import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "./services/firebase";
 import Model3D from "./Components/Model3D";
 
 const SingleProduct = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const product_id = urlParams.get("product_id");
-  const product = data.filter((product) => product.id == product_id)[0];
+  const [product, setProduct] = useState(
+    data.filter((product) => product.id == product_id)[0]
+  );
   const [showVideoPage, setShowVideoPage] = useState(false);
   const [userId, setUserId] = useState(false);
+  const handleJetztKaufenClick = (data) => {
+    console.log("check cart button", product_id);
+    const ref = doc(db, "users", userId);
+    try {
+      setDoc(
+        ref,
+        { "Clicked Jetzt Kaufen": arrayUnion(data) },
+        { merge: true }
+      );
+    } catch (err) {
+      console.log("error cart button");
+      console.log(err);
+    }
+  };
   const [pageStartTime, setPageStartTime] = useState(0);
   const image = [
     "images/3dproduct1.1.png",
@@ -63,7 +79,10 @@ const SingleProduct = () => {
     <Wrapper>
       <div className="abc">
         <div className="secondHeader">
-          <SecondHeader userId={userId} />
+          <SecondHeader
+            userId={userId}
+            onClickJetztKaufen={handleJetztKaufenClick}
+          />
         </div>
 
         <div className="uppersection">
