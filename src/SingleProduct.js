@@ -50,29 +50,27 @@ const SingleProduct = () => {
   }, []);
 
   useEffect(() => {
-    return async () => {
-      // Record the time when the component mounts as the page start time
-      setPageStartTime(Date.now());
-
-      // Set up a cleanup function to calculate and save the time spent when the component unmounts
-
-      // Calculate the time spent on the page
-      const pageEndTime = Date.now();
-      const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000;
-      try {
-        const userRef = doc(db, "users", userId);
-        await setDoc(
-          userRef,
-          { timeSpentOnSingleProduct: timeSpentInSeconds },
-          { merge: true }
-        );
-      } catch (error) {
-        console.log(
-          "Error saving time spent on Single Product page in Firestore:",
-          error
-        );
-      }
-    };
+    // return async () => {
+    //   // Record the time when the component mounts as the page start time
+    //   setPageStartTime(Date.now());
+    //   // Set up a cleanup function to calculate and save the time spent when the component unmounts
+    //   // Calculate the time spent on the page
+    //   const pageEndTime = Date.now();
+    //   const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000;
+    //   try {
+    //     const userRef = doc(db, "users", userId);
+    //     await setDoc(
+    //       userRef,
+    //       { timeSpentOnSingleProduct: timeSpentInSeconds },
+    //       { merge: true }
+    //     );
+    //   } catch (error) {
+    //     console.log(
+    //       "Error saving time spent on Single Product page in Firestore:",
+    //       error
+    //     );
+    //   }
+    // };
   }, [userId, pageStartTime]);
 
   return (
@@ -96,7 +94,7 @@ const SingleProduct = () => {
             {showVideoPage == "2" ? (
               <Videosection userId={userId} product={product} />
             ) : showVideoPage == "3" ? (
-              <Model3D product={product_id} />
+              <Model3D className="3dmodel-wrapper" product={product_id} />
             ) : (
               <iframe
                 src={
@@ -193,6 +191,10 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .3dmodel-wrapper {
+    margin: auto;
   }
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
