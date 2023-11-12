@@ -42,6 +42,8 @@ const SingleProduct = () => {
   ];
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     // Analytics tracking for Single Product Page
     const searchParams = new URLSearchParams(window.location.search);
     setShowVideoPage(searchParams.get("mode"));
