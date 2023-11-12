@@ -6,14 +6,14 @@ import products from "../data/product_data";
 import LOGO from "../assets/Logo_SOLACE.png";
 
 const SecondHeader = ({ userId, onClickJetztKaufen }) => {
-  const [showVideoPage, setShowVideoPage] = useState("null");
+  const [mode, setMode] = useState("null");
   const [productId, setProductId] = useState("null");
   const [product, setProduct] = useState("null");
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     console.log("searchParams", searchParams.get("product_id"));
-    setShowVideoPage(searchParams.get("mode"));
+    setMode(searchParams.get("mode"));
     setProductId(searchParams.get("product_id"));
     // setProduct(products.filter((product) => product.id == productId)[0]);
   }, []);
@@ -32,7 +32,7 @@ const SecondHeader = ({ userId, onClickJetztKaufen }) => {
 
   return (
     <MainHeader2 id="header">
-      <NavLink to={`/home?mode=${showVideoPage}&userId=${userId}`}>
+      <NavLink to={`/home?mode=${mode}&userId=${userId}`}>
         <div className="logo-img">
           <img
             src={LOGO}
@@ -46,7 +46,7 @@ const SecondHeader = ({ userId, onClickJetztKaufen }) => {
       <div>
         <NavLink
           onClick={handleClick}
-          to="/thankyou"
+          to={`/thankyou?mode=${mode}`}
           className="navbar-link-cart"
         >
           <div className="cartbutton">

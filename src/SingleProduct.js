@@ -16,7 +16,7 @@ const SingleProduct = () => {
   const [product, setProduct] = useState(
     data.filter((product) => product.id == product_id)[0]
   );
-  const [showVideoPage, setShowVideoPage] = useState(false);
+  const [mode, setMode] = useState(false);
   const [userId, setUserId] = useState(false);
   const handleJetztKaufenClick = (data) => {
     console.log("check cart button", product_id);
@@ -46,7 +46,7 @@ const SingleProduct = () => {
 
     // Analytics tracking for Single Product Page
     const searchParams = new URLSearchParams(window.location.search);
-    setShowVideoPage(searchParams.get("mode"));
+    setMode(searchParams.get("mode"));
     setUserId(searchParams.get("userId"));
     // You can add more tracking here if needed
   }, []);
@@ -97,9 +97,9 @@ const SingleProduct = () => {
               alignItems: "center",
             }}
           >
-            {showVideoPage == "2" ? (
+            {mode == "2" ? (
               <Videosection userId={userId} product={product} />
-            ) : showVideoPage == "3" ? (
+            ) : mode == "3" ? (
               <Model3D className="3dmodel-wrapper" product={product_id} />
             ) : (
               <iframe
@@ -119,10 +119,10 @@ const SingleProduct = () => {
         <div className="single-product-page">
           <div className="slider-block">
             {" "}
-            <Productpage userId={userId} product={product} />
+            <Productpage userId={userId} product={product} mode={mode} />
           </div>
           <div className="prod-disp">
-            <ProductDisplay userId={userId} product={product} />
+            <ProductDisplay userId={userId} product={product} mode={mode} />
           </div>
         </div>
         <Footer />

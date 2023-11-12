@@ -5,8 +5,8 @@ import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "../services/firebase";
 
 const ProductList = ({ ref, userId }) => {
-  const listItems = product_card.map((item) => (
-    <Cell userId={userId} shoe={item} image={item.thumb} />
+  const listItems = product_card.map((item, index) => (
+    <Cell userId={userId} shoe={item} image={item.thumb} key={index} />
   ));
   return (
     <div id="productList" className="productlistHead" ref={ref}>
@@ -18,12 +18,12 @@ const ProductList = ({ ref, userId }) => {
 
 function Cell({ shoe, image, userId }) {
   const [hover, setHover] = useState(false);
-  const [showVideoPage, setShowVideoPage] = useState(false);
+  const [mode, setMode] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    setShowVideoPage(searchParams.get("mode"));
+    setMode(searchParams.get("mode"));
   }, []);
   const handleClick = async () => {
     const ref = doc(db, "users", userId); // Firebase creates this automatically
@@ -34,9 +34,7 @@ function Cell({ shoe, image, userId }) {
     };
     try {
       await setDoc(ref, data, { merge: true });
-      navigate(
-        `/product?mode=${showVideoPage}&product_id=${shoe.id}&userId=${userId}`
-      );
+      navigate(`/product?mode=${mode}&product_id=${shoe.id}&userId=${userId}`);
     } catch (err) {
       console.log(err);
     }

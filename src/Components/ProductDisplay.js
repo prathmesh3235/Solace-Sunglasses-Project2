@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "../services/firebase";
 
-const ProductDisplay = ({ product, userId }) => {
+const ProductDisplay = ({ product, userId, mode }) => {
   const navigate = useNavigate();
   const handleClick = () => {
     const ref = doc(db, "users", userId); // Firebase creates this automatically
@@ -22,7 +22,7 @@ const ProductDisplay = ({ product, userId }) => {
       console.log(err);
     }
     navigate(
-      "/product/moreinfo?product_id=" + product.id + "&userId=" + userId
+      `/product/moreinfo?product_id=${product.id}&userId=${userId}&mode=${mode}`
     );
   };
   return (
