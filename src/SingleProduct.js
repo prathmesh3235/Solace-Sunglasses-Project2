@@ -74,7 +74,11 @@ const SingleProduct = () => {
   }, [userId, pageStartTime]);
 
   return (
-    <Wrapper>
+    <Wrapper
+      style={{
+        padding: 0,
+      }}
+    >
       <div className="abc">
         <div className="secondHeader">
           <SecondHeader
@@ -127,7 +131,7 @@ const SingleProduct = () => {
 
 const Wrapper = styled.section`
   .container {
-    padding: 9rem 0;
+    padding: 9rem 3.2rem;
   }
   .product-data {
     display: flex;

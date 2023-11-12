@@ -672,6 +672,7 @@ input, textarea{
       z-index: 100; 
     }
     .moreinfopage{
+      margin-top: 5rem;
       padding-right:1rem;
       padding-left:1rem;
       text-align: center;

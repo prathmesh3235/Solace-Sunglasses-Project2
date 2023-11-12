@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { BsCartCheckFill } from "react-icons/bs";
 import products from "../data/product_data";
+import LOGO from "../assets/Logo_SOLACE.png";
 
 const SecondHeader = ({ userId, onClickJetztKaufen }) => {
   const [showVideoPage, setShowVideoPage] = useState("null");
@@ -34,7 +35,7 @@ const SecondHeader = ({ userId, onClickJetztKaufen }) => {
       <NavLink to={`/home?mode=${showVideoPage}&userId=${userId}`}>
         <div className="logo-img">
           <img
-            src="./images/Logo_SOLACE.png"
+            src={LOGO}
             width="120px"
             height="100px"
             alt="my logo img"
