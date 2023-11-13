@@ -17,7 +17,7 @@ function Login({ handleLogin }) {
         if (userDoc.exists()) {
           // User already exists, prevent login
           alert(
-            "Dieser Probandencode exitiert bereits. Bitte geben Sie stattdessen Ihre Initialen und ihre Hausnummer (z.B. LM06) ein."
+            "Dieser Probandencode exitiert bereits. Bitte geben Sie stattdessen 𝐈𝐡𝐫𝐞 𝐈𝐧𝐢𝐭𝐢𝐚𝐥𝐞𝐧 𝐮𝐧𝐝 𝐢𝐡𝐫𝐞 𝐇𝐚𝐮𝐬𝐧𝐮𝐦𝐦𝐞𝐫 (z.B. LM06) ein."
           );
         } else {
           // User does not exist, navigate to the home page

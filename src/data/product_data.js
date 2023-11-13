@@ -48,7 +48,7 @@ const product_card = [
     Polarisierung_tag: "Polarisierung: nicht vorhanden",
     PolarisierungDescription:
       "Polarisierende Sonnenbrillen bieten nicht nur Schutz vor schädlicher UV-Strahlung, sie reduzieren auch unangenehme Reflexionen des Sonnenlichts. Die Solace Oasis S ist in dieser Ausführung nicht polarisiert.",
-    Zubehör: "Zubehör:",
+    Zubehör: "Zubehör: ohne",
     ZubehörDescription: "Die Solace Oasis S wird ohne Zubehör geliefert.",
     Premium_tag: "Standard Gläser",
     Premium_description:
