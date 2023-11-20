@@ -17,6 +17,7 @@ import Moreinfo from "./moreinfo";
 import Login from "./login";
 import ReactGA from "react-ga4";
 import Model3D from "./Components/Model3D";
+import { CookiesProvider } from "react-cookie";
 
 const TRACKING_ID = "G-G7L7Q28LTL";
 ReactGA.initialize(TRACKING_ID);
@@ -63,25 +64,27 @@ const App = () => {
     },
   };
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <GlobalStyle />
-        {/* <Header/> */}
-        <Routes>
-          <Route path="/" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/home" element={<Home userId={userId} ref={ref} />} />
-          <Route path="/thankyou" element={<Thankyoupage />} />
-          <Route path="/3dmodel" element={<Model3D product={1} />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/product" element={<SingleProduct />} />
-          <Route
-            path="/product/moreinfo"
-            element={<Moreinfo userId={userId} />}
-          />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <CookiesProvider defaultSetOptions={{ path: "/" }}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <GlobalStyle />
+          {/* <Header/> */}
+          <Routes>
+            <Route path="/" element={<Login handleLogin={handleLogin} />} />
+            <Route path="/home" element={<Home userId={userId} ref={ref} />} />
+            <Route path="/thankyou" element={<Thankyoupage />} />
+            <Route path="/3dmodel" element={<Model3D product={1} />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/product" element={<SingleProduct />} />
+            <Route
+              path="/product/moreinfo"
+              element={<Moreinfo userId={userId} />}
+            />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </CookiesProvider>
   );
 };
 

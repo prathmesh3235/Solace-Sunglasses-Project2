@@ -18,6 +18,8 @@ const SingleProduct = () => {
   );
   const [mode, setMode] = useState(false);
   const [userId, setUserId] = useState(false);
+  const [pageStartTime, setPageStartTime] = useState(0);
+  const [initialTimeSpent, setInitialTimeSpent] = useState(0);
   const handleJetztKaufenClick = (data) => {
     console.log("check cart button", product_id);
     const ref = doc(db, "users", userId);
@@ -32,7 +34,7 @@ const SingleProduct = () => {
       console.log(err);
     }
   };
-  const [pageStartTime, setPageStartTime] = useState(0);
+
   const image = [
     "images/3dproduct1.1.png",
     "images/3dproduct1.2.png",
@@ -48,32 +50,24 @@ const SingleProduct = () => {
     const searchParams = new URLSearchParams(window.location.search);
     setMode(searchParams.get("mode"));
     setUserId(searchParams.get("userId"));
-    // You can add more tracking here if needed
-  }, []);
 
-  // useEffect(() => {
-  // return async () => {
-  //   // Record the time when the component mounts as the page start time
-  //   setPageStartTime(Date.now());
-  //   // Set up a cleanup function to calculate and save the time spent when the component unmounts
-  //   // Calculate the time spent on the page
-  //   const pageEndTime = Date.now();
-  //   const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000;
-  //   try {
-  //     const userRef = doc(db, "users", userId);
-  //     await setDoc(
-  //       userRef,
-  //       { timeSpentOnSingleProduct: timeSpentInSeconds },
-  //       { merge: true }
-  //     );
-  //   } catch (error) {
-  //     console.log(
-  //       "Error saving time spent on Single Product page in Firestore:",
-  //       error
-  //     );
-  //   }
-  // };
-  // }, [userId, pageStartTime]);
+    // Record the time when the component mounts as page start time
+    setPageStartTime(Date.now());
+    setInitialTimeSpent(
+      parseInt(sessionStorage.getItem("timeSpentOnSingleProductPage")) || 0
+    );
+  }, []);
+  useEffect(() => {
+    return () => {
+      // Calculate the time spent on the page
+      const pageEndTime = Date.now();
+      const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000; // Calculate time spent in seconds
+      sessionStorage.setItem(
+        "timeSpentOnSingleProductPage",
+        initialTimeSpent + timeSpentInSeconds
+      );
+    };
+  }, [pageStartTime]);
 
   return (
     <Wrapper
@@ -100,7 +94,27 @@ const SingleProduct = () => {
             {mode == "2" ? (
               <Videosection userId={userId} product={product} />
             ) : mode == "3" ? (
-              <Model3D className="3dmodel-wrapper" product={product_id} />
+              <>
+                <Model3D className="3dmodel-wrapper" product={product_id} />
+                <h4
+                  className="3d-modelHeading"
+                  style={{
+                    color: "rgb(54, 79, 107)",
+                    "font-size": "2rem",
+                    padding: "4rem",
+                    "text-align": "left",
+                    "margin-bottom": "-57rem",
+                    "@media (max-width: 768px)": {
+                      display: "none",
+                    },
+                  }}
+                >
+                  {" "}
+                  “Bewegen Sie einfach Ihre Maus über das Bild oder tippen Sie
+                  im Bild auf verschiedene Stellen, um eine 3D Ansicht der
+                  Brille zu erhalten”.
+                </h4>
+              </>
             ) : (
               <iframe
                 src={

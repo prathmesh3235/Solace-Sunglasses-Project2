@@ -1,46 +1,54 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import HeroSection from "./Components/LandingPage";
 import ProductList from "./Components/ProductList";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import { doc, setDoc } from "@firebase/firestore";
+import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "./services/firebase";
 
 const Home = ({ ref }) => {
   const urlParams = new URLSearchParams(window.location.search);
   const userId = urlParams.get("userId");
-  const pageStartTimeRef = useRef(Date.now()); // Use a ref to store page start time
-
-  // useEffect(() => {
-  //   return () => {
-  //     // Calculate the time spent on the page
-  //     const pageEndTime = Date.now();
-  //     const timeSpentInSeconds =
-  //       (pageEndTime - pageStartTimeRef.current) / 1000; // Calculate time spent in seconds
-
-  //     // Update Firebase Firestore with the time spent
-  //     const userRef = doc(db, "users", userId);
-  //     setDoc(
-  //       userRef,
-  //       { timeSpentOnHomepage: timeSpentInSeconds },
-  //       { merge: true }
-  //     )
-  //       .then(() => {
-  //         console.log("Time spent on homepage saved in Firestore");
-  //       })
-  //       .catch((error) => {
-  //         console.error(
-  //           "Error saving time spent on homepage in Firestore:",
-  //           error
-  //         );
-  //       });
-  //   };
-  // }, [userId]); // Include userId in the dependency array to ensure it's up to date
+  const [pageStartTime, setPageStartTime] = useState(0);
+  const [initalTimeSpent, setInitalTimeSpent] = useState(0);
 
   const data = {
     name: "Sunny",
     description: "This is a description for the home page",
   };
+  const handleClick = (feature) => {
+    console.log("handleClick", feature, userId);
+
+    const ref = doc(db, "users", userId); // Firebase creates this automatically
+    let data = {
+      "Clicked Feature": arrayUnion(feature + " " + new Date()),
+    };
+    try {
+      setDoc(ref, data, { merge: true });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setInitalTimeSpent(
+      parseInt(sessionStorage.getItem("timeSpentOnHomePage")) || 0
+    );
+    setPageStartTime(Date.now());
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      // Calculate the time spent on the page
+      const pageEndTime = Date.now();
+      const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000; // Calculate time spent in seconds
+      sessionStorage.setItem(
+        "timeSpentOnHomePage",
+        initalTimeSpent + timeSpentInSeconds
+      );
+    };
+  }, [pageStartTime]);
 
   return (
     <>

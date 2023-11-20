@@ -46,7 +46,7 @@ const SecondHeader = ({ userId, onClickJetztKaufen }) => {
       <div>
         <NavLink
           onClick={handleClick}
-          to={`/thankyou?mode=${mode}`}
+          to={`/thankyou?mode=${mode}&userId=${userId}`}
           className="navbar-link-cart"
         >
           <div className="cartbutton">

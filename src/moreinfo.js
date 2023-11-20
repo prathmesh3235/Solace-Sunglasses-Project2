@@ -9,8 +9,6 @@ import { doc, setDoc, arrayUnion } from "@firebase/firestore";
 import { db } from "./services/firebase";
 
 const Moreinfo = () => {
-  useEffect(() => window.scrollTo(0, 0), []);
-
   ReactGA.send({
     hitType: "pageview",
     page: window.location.href,
@@ -27,6 +25,7 @@ const Moreinfo = () => {
   const [openFeaturesZU, setOpenFeaturesZU] = useState(false);
   const [openFeaturesSEH, setOpenFeaturesSEH] = useState(false);
   const [pageStartTime, setPageStartTime] = useState(0);
+  const [initalTimeSpent, setInitalTimeSpent] = useState(0);
   const handleJetztKaufenClick = (data) => {
     console.log("check cart button");
     const ref = doc(db, "users", userId);
@@ -43,32 +42,24 @@ const Moreinfo = () => {
   };
   // Record the time when the component mounts as page start time
 
-  // useEffect(() => {
-  //   setPageStartTime(Date.now());
-
-  //   return () => {
-  //     // Calculate the time spent on the page
-  //     const pageEndTime = Date.now();
-  //     const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000; // Calculate time spent in seconds
-
-  //     // Update Firebase Firestore with the time spent
-  //     const userRef = doc(db, "users", userId);
-  //     setDoc(
-  //       userRef,
-  //       { timeSpentOnMoreinfo: timeSpentInSeconds },
-  //       { merge: true }
-  //     )
-  //       .then(() => {
-  //         console.log("Time spent on Moreinfo page saved in Firestore");
-  //       })
-  //       .catch((error) => {
-  //         console.error(
-  //           "Error saving time spent on Moreinfo page in Firestore:",
-  //           error
-  //         );
-  //       });
-  //   };
-  // }, [userId, pageStartTime]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setInitalTimeSpent(
+      parseInt(sessionStorage.getItem("timeSpentOnProductDetailsPage")) || 0
+    );
+    setPageStartTime(Date.now());
+  }, []);
+  useEffect(() => {
+    return () => {
+      // Calculate the time spent on the page
+      const pageEndTime = Date.now();
+      const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000; // Calculate time spent in seconds
+      sessionStorage.setItem(
+        "timeSpentOnProductDetailsPage",
+        initalTimeSpent + timeSpentInSeconds
+      );
+    };
+  }, [pageStartTime]);
 
   const handleClick = (feature) => {
     console.log("handleClick", feature, userId);
