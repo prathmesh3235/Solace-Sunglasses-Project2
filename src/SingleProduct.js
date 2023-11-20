@@ -96,24 +96,21 @@ const SingleProduct = () => {
             ) : mode == "3" ? (
               <>
                 <Model3D className="3dmodel-wrapper" product={product_id} />
-                <h4
-                  className="3d-modelHeading"
-                  style={{
-                    color: "rgb(54, 79, 107)",
-                    "font-size": "2rem",
-                    padding: "4rem",
-                    "text-align": "left",
-                    "margin-bottom": "-57rem",
-                    "@media (max-width: 768px)": {
-                      display: "none",
-                    },
-                  }}
+                {/* <h4
+                // className="3d-modelHeading"
+                // style={{
+                //   color: "rgb(54, 79, 107)",
+                //   "font-size": "2rem",
+                //   padding: "4rem",
+                //   "text-align": "left",
+                //   "margin-bottom": "-57rem",
+                // }}
                 >
                   {" "}
                   “Bewegen Sie einfach Ihre Maus über das Bild oder tippen Sie
                   im Bild auf verschiedene Stellen, um eine 3D Ansicht der
                   Brille zu erhalten”.
-                </h4>
+                </h4> */}
               </>
             ) : (
               <iframe
