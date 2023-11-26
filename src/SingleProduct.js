@@ -63,7 +63,7 @@ const SingleProduct = () => {
       const pageEndTime = Date.now();
       const timeSpentInSeconds = (pageEndTime - pageStartTime) / 1000; // Calculate time spent in seconds
       sessionStorage.setItem(
-        "timeSpentOnSingleProductPage",
+        `timeSpentOnSingleProductPage_${product_id}`,
         initialTimeSpent + timeSpentInSeconds
       );
     };
