@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import SecondHeader from "./Components/SecondHeader";
 import Footer from "./Components/Footer";
 import styled from "styled-components";
 import { doc, setDoc } from "@firebase/firestore";
@@ -29,16 +28,18 @@ const Thankyoupage = () => {
 
   return (
     <div>
-      <div className="secondHeader">
-        <SecondHeader />
+      <div className="thirdHeader">
+        <h1> .</h1>
       </div>
-      <h2 className="tyh2"> Vielen Dank. </h2>
-      <br />{" "}
-      <h3 className="tyh3">
-        {" "}
-        Drücken Sie nun <u>unten im Fragebogen </u>auf den “Weiter-Pfeil” und
-        füllen Sie die restlichen Fragen aus{" "}
-      </h3>
+      <div className="thankyoutext">
+        <h2 className="tyh2"> Vielen Dank. </h2>
+        <br />{" "}
+        <h3 className="tyh3">
+          {" "}
+          Drücken Sie nun <u>unten im Fragebogen </u>auf den “Weiter-Pfeil” und
+          füllen Sie die restlichen Fragen aus{" "}
+        </h3>
+      </div>
       <Footer />
     </div>
   );

@@ -22,36 +22,58 @@ const SecondHeader = ({ userId, onClickJetztKaufen }) => {
     setProduct(products.filter((product) => product.id == productId)[0]);
   }, [productId]);
 
-  const handleClick = () => {
+  const handleClick = (str) => {
     console.log("handleClick Jetzt Kaufen", product);
     if (userId) {
       // Update the database
-      onClickJetztKaufen(product.product_name + " " + new Date());
+      onClickJetztKaufen(str + " " + new Date());
     }
   };
 
   return (
     <MainHeader2 id="header">
-      <NavLink to={`/home?mode=${mode}&userId=${userId}`}>
-        <div className="logo-img">
-          <img
-            src={LOGO}
-            width="120px"
-            height="100px"
-            alt="my logo img"
-            href="/home"
-          />
+      <div className="logoButton">
+        <NavLink to={`/home?mode=${mode}&userId=${userId}`}>
+          <div className="logo-img">
+            <img
+              src={LOGO}
+              width="90px"
+              height="70px"
+              alt="my logo img"
+              href="/home"
+            />
+          </div>
+        </NavLink>
+        <div>
+          <NavLink
+            to={`/home?mode=${mode}&userId=${userId}`}
+            className="homeButton"
+            onClick={handleClick}
+          >
+            <h5> Home</h5>
+          </NavLink>
         </div>
-      </NavLink>
+      </div>
+
       <div>
         <NavLink
-          onClick={handleClick}
+          onClick={() => handleClick("Solace Oasis")}
           to={`/thankyou?mode=${mode}&userId=${userId}`}
           className="navbar-link-cart"
         >
           <div className="cartbutton">
-            <h3>Jetzt Kaufen</h3>
-            <BsCartCheckFill size={55} />
+            <BsCartCheckFill className="carticon" size={35} />
+            <h3>Jetzt Kaufen Solace Oasis</h3>
+          </div>
+        </NavLink>
+        <NavLink
+          onClick={() => handleClick("Solace Paradise")}
+          to={`/thankyou?mode=${mode}&userId=${userId}`}
+          className="navbar-link-cart"
+        >
+          <div className="cartbutton">
+            <BsCartCheckFill className="carticon" size={35} />
+            <h3>Jetzt Kaufen Solace Paradise</h3>
           </div>
         </NavLink>
       </div>
@@ -66,12 +88,55 @@ const MainHeader2 = styled.header`
   align-items: center;
   position: relative;
   .cartbutton {
-    display: flex;
     font-size: 20px !important;
     margin-right: 5rem;
   }
+
+  .carticon {
+    margin-top: 1rem;
+  }
+
+  .homeButton h5 {
+    font-size: 2rem !important;
+    color: rgb(54, 79, 107);
+    margin-top: 3rem;
+    padding: 1rem;
+    font-weight: bold;
+  }
   .cartbutton h3 {
-    margin: 2rem;
+    // width: 50%;
+    font-size: 15px;
+    padding-top: 2rem;
+  }
+  .logoButton {
+    display: flex;
+  }
+  .cartbutton {
+    display: flex;
+  }
+
+  @media (max-width: 1024px) {
+    .logoButton {
+      width: 70% !important;
+    }
+  }
+
+  @media (max-width: 918px) {
+    .logoButton {
+      width: 50% !important;
+    }
+  }
+
+  @media (max-width: 532px) {
+    .logo-img {
+      display: none;
+    }
+    .logoButton {
+      width: 30% !important;
+    }
+    .cartbutton h3 {
+      font-size: 10px;
+    }
   }
 `;
 

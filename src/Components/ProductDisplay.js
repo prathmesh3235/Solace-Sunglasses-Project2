@@ -52,7 +52,7 @@ const ProductDisplay = ({ product, userId, mode }) => {
             <li className="product-info-i">
               <h3>
                 {" "}
-                <BsDot /> Material: Metall{" "}
+                <BsDot /> Zubehör: Etui{" "}
               </h3>
             </li>
             <li className="product-info-i">

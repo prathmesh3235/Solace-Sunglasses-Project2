@@ -117,17 +117,17 @@ const Moreinfo = () => {
         </p>
         <hr />
         <h2>
-          {product.Zubehör}
+          {product.Material}
           <AiOutlinePlus
             size={25}
             onClick={() => {
               setOpenFeaturesZU(!openFeaturesZU);
-              handleClick("Zubehör");
+              handleClick("Material");
             }}
           />{" "}
         </h2>
         <p style={{ display: openFeaturesZU ? "block" : "none" }}>
-          {product.ZubehörDescription}
+          {product.MaterialDescription}
         </p>
         <hr />
         <h2>

@@ -1,12 +1,12 @@
 const product_card = [
   {
     id: 1,
-    product_name: "Solace Oasis G",
+    product_name: "Solace Oasis",
     price: "ab 89,95",
-    farbe: "Schwarz / Gold ",
+    farbe: "Mattglanz Gold / Schwarz ",
     currency: "EURO",
     uv_filter:
-      "Die Solace Oasis G überzeugt mit dem eingebauten UV-Filter-UV1000 in der Stärke-sehr stark. Dieser garantiert Schutz vor Sonneneinstrahlung bis zum UV-Index 10+.",
+      "Die Solace Oasis überzeugt mit dem eingebauten UV-Filter-UV1000 in der Stärke-sehr stark. Dieser garantiert Schutz vor Sonneneinstrahlung bis zum UV-Index 10+.",
     thumb: "./images/gold_black1.png",
     thumb2: "./images/product1.2.png",
     thumb3: "./images/product1.3.png",
@@ -18,41 +18,51 @@ const product_card = [
       "https://www.youtube.com/embed/rnwzoJp1EqQ?controls=0&autoplay=1&mute=1&loop=1&playlist=rnwzoJp1EqQ",
     uv_tag: "UV-Filter: sehr stark",
     UV_FilterDescription:
-      "Die Solace Oasis G überzeugt mit dem eingebauten UV-Filter UV1000 in der Stärke sehr stark. Dieser garantiert Schutz vor Sonneneinstrahlung bis zum UV-Index 10+.",
+      "Die Solace Oasis überzeugt mit dem eingebauten UV-Filter UV1000 in der Stärke sehr stark. Dieser garantiert Schutz vor Sonneneinstrahlung bis zum UV-Index 10+.",
     Polarisierung_tag: "Polarisierung: vorhanden",
     PolarisierungDescription:
-      "Polarisierende Sonnenbrillen bieten nicht nur Schutz vor schädlicher UV-Strahlung, sie reduzieren auch unangenehme Reflexionen des Sonnenlichts. Die Solace Oasis G ist in dieser Ausführung polarisiert.",
-    Zubehör: "Zubehör: Etui und Reinigungstuch",
-    ZubehörDescription:
-      "Die Solace Oasis G wird mit einem Etui aus Kunstleder inklusive einem Reinigungstuch geliefert, das die Brille vor Kratzern schützt. Das Etui ist in der Farbe Kastanienbraun erhältlich.",
+      "Polarisierende Sonnenbrillen bieten nicht nur Schutz vor schädlicher UV-Strahlung, sie reduzieren auch unangenehme Reflexionen des Sonnenlichts. Die Solace Oasis ist in dieser Ausführung polarisiert.",
+    Material: "Material: Metall",
+    MaterialDescription:
+      "Das Gestell der Solace Oasis ist aus hochwertigem Metall gefertigt, das Langlebigkeit und Robustheit garantiert.",
     Premium_tag: "Premium Gläser",
     Premium_description:
-      "Die Solace Oasis G ist mit hochwertigen und strapazierfähigen Gläsern ausgestattet. Wir garantieren für eine Langlebigkeit und einen hohen Schutz vor Kratzern. Bei Bedarf ist eine Sehstärkenanpassung der Gläser ohne Zusatzkosten möglich.",
+      "Die Solace Oasis ist mit hochwertigen und strapazierfähigen Gläsern ausgestattet. Wir garantieren für eine Langlebigkeit und einen hohen Schutz vor Kratzern. Bei Bedarf ist eine Sehstärkenanpassung der Gläser ohne Zusatzkosten möglich.",
   },
   {
     id: 2,
-    product_name: "Solace Oasis S",
+    product_name: "Solace Paradise",
     price: "ab 89,95",
-    farbe: "Schwarz / Silber ",
+    farbe: "Matt Gold / Schwarz ",
     currency: "EURO",
-    thumb: "./images/silver_black_1.png",
-    thumb2: "./images/silver_black_2.png",
-    thumb3: "./images/product2.3.jpg",
-    thumb4: "./images/product2.4.jpg",
-    sku: "aliexpress_clubmaster_style_silver_black",
-    src: "https://sketchfab.com/models/30ef0899dbf24ca7a831c11c542d1e36/embed?autospin=1&autostart=1",
+    // thumb: "./images/silver_black_1.png",
+    // thumb2: "./images/silver_black_2.png",
+    // thumb3: "./images/product2.3.jpg",
+    // thumb4: "./images/product2.4.jpg",
+    // sku: "aliexpress_clubmaster_style_silver_black",
+    // src: "https://sketchfab.com/models/30ef0899dbf24ca7a831c11c542d1e36/embed?autospin=1&autostart=1",
+    // video: "../../src/assets/videos/product1.mp4",
+    thumb: "./images/gold_black1.png",
+    thumb2: "./images/product1.2.png",
+    thumb3: "./images/product1.3.png",
+    thumb4: "./images/product1.4.jpg",
+    sku: "aliexpress_clubmaster_style_gold_black",
+    src: "https://sketchfab.com/models/e362552bb2ff4d73bc62f980e4b0c73f/embed?autospin=1&autostart=1",
     video: "../../src/assets/videos/product1.mp4",
+    videolink:
+      "https://www.youtube.com/embed/rnwzoJp1EqQ?controls=0&autoplay=1&mute=1&loop=1&playlist=rnwzoJp1EqQ",
     uv_tag: "UV-Filter: nicht vorhanden",
     UV_FilterDescription:
-      "Die Solace Oasis S hat keinen eingebauten UV-Filter.",
+      "Die Solace Paradise hat keinen eingebauten UV-Filter.",
     Polarisierung_tag: "Polarisierung: nicht vorhanden",
     PolarisierungDescription:
-      "Polarisierende Sonnenbrillen bieten nicht nur Schutz vor schädlicher UV-Strahlung, sie reduzieren auch unangenehme Reflexionen des Sonnenlichts. Die Solace Oasis S ist in dieser Ausführung nicht polarisiert.",
-    Zubehör: "Zubehör: ohne",
-    ZubehörDescription: "Die Solace Oasis S wird ohne Zubehör geliefert.",
+      "Polarisierende Sonnenbrillen bieten nicht nur Schutz vor schädlicher UV-Strahlung, sie reduzieren auch unangenehme Reflexionen des Sonnenlichts. Die Solace Paradise ist in dieser Ausführung nicht polarisiert.",
+    Material: "Material: Kunststoff",
+    MaterialDescription:
+      "Das Gestell der Solace Paradise ist aus Standard-Kunststoff gefertigt.",
     Premium_tag: "Standard Gläser",
     Premium_description:
-      "Die Solace Oasis S ist mit Standardgläsern ausgestattet. Wir garantieren nicht für Langlebigkeit oder Schutz vor Kratzern. Eine Sehstärkenanpassung ist darüber hinaus nicht möglich.",
+      "Die Solace Paradise ist mit Standardgläsern ausgestattet. Wir garantieren nicht für Langlebigkeit oder Schutz vor Kratzern. Eine Sehstärkenanpassung ist darüber hinaus nicht möglich.",
 
     videolink:
       "https://www.youtube.com/embed/rnwzoJp1EqQ?controls=0&autoplay=1&mute=1&loop=1&playlist=rnwzoJp1EqQ",

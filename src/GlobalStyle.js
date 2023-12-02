@@ -41,6 +41,20 @@ video{
   color: black;
   }
 }
+
+.thirdHeader{
+  background-color: #fce698;
+  width: 100%;
+  height: 80px
+}
+
+.thirdHeader h1{
+  color: #fce698;
+}
+
+.thankyoutext{
+  margin-bottom: 30rem;
+}
 .product-info-i{
   font-size:50px;
   font-weight:bold;
@@ -601,9 +615,8 @@ input, textarea{
   
     img{
       height: 100px;
-      width: 210px;
+      width: 160px;
       background-size: 100%;
-    
     }
     .virtual-container{
       justify-content: center;

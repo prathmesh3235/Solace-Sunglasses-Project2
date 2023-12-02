@@ -16,22 +16,6 @@ const Footer = ({ url }) => {
   return (
     <div>
       <Wrapper>
-        {/* <section className="contact-short">
-          <div className="grid grid-two-column">
-            <div>
-              <h3>Ready to Shop?</h3>
-              <h3>Try our Sunglasses now</h3>
-            </div>
-
-            <div>
-              <Button onClick={handleClick} className="btn hireme-btn">
-                <NavLink> Get Started </NavLink>
-              </Button>
-            </div>
-          </div>
-        </section> */}
-        {/* footer section */}
-
         <footer>
           <div className="container grid grid-three-column">
             <div className="footer-about">
@@ -55,7 +39,7 @@ const Footer = ({ url }) => {
                   <FaInstagram className="icons" />
                 </div>
                 <div>
-                  <a href="https://www.youtube.com" target="_blank">
+                  <a>
                     <FaYoutube className="icons" />
                   </a>
                 </div>
