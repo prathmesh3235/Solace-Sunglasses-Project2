@@ -7,7 +7,7 @@ const product_card = [
     currency: "EURO",
     uv_filter:
       "Die Solace Oasis überzeugt mit dem eingebauten UV-Filter-UV1000 in der Stärke-sehr stark. Dieser garantiert Schutz vor Sonneneinstrahlung bis zum UV-Index 10+.",
-    thumb: "./images/gold_black1.png",
+    thumb: "./images/prod1.1.png",
     thumb2: "./images/product1.2.png",
     thumb3: "./images/product1.3.png",
     thumb4: "./images/product1.4.jpg",
@@ -42,7 +42,7 @@ const product_card = [
     // sku: "aliexpress_clubmaster_style_silver_black",
     // src: "https://sketchfab.com/models/30ef0899dbf24ca7a831c11c542d1e36/embed?autospin=1&autostart=1",
     // video: "../../src/assets/videos/product1.mp4",
-    thumb: "./images/gold_black1.png",
+    thumb: "./images/prod1.1.png",
     thumb2: "./images/product1.2.png",
     thumb3: "./images/product1.3.png",
     thumb4: "./images/product1.4.jpg",
