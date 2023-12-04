@@ -23,7 +23,7 @@ const SecondHeader = ({ userId, onClickJetztKaufen }) => {
   }, [productId]);
 
   const handleClick = (str) => {
-    console.log("handleClick Jetzt Kaufen", product);
+    console.log("handleClick Jetzt Kaufen", str);
     if (userId) {
       // Update the database
       onClickJetztKaufen(str + " " + new Date());
