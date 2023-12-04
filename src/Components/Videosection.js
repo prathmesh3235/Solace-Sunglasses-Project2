@@ -8,6 +8,7 @@ const Videosection = ({ product, userId }) => {
       {product_card.map((product, index) => [])}
       <div class="sketchfab-embed-wrapper">
         <iframe
+          className="3diframe"
           width={"700"}
           height={"400"}
           title="Sun Glasses - Low Poly"
@@ -31,3 +32,8 @@ const Videosection = ({ product, userId }) => {
 };
 
 export default Videosection;
+const Wrapper = styled.section`
+  .sketchfab-embed-wrapper {
+    margin-top: 2rem;
+  }
+`;

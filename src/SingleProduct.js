@@ -114,13 +114,14 @@ const SingleProduct = () => {
               </>
             ) : (
               <iframe
+                className="VRiframe"
                 src={
                   "https://virtual-tryon-five.vercel.app/?sku=" + product.sku
                 }
                 title="Virtual Try On"
                 frameBorder="0"
                 width="500"
-                height="500"
+                height="400"
                 allow="camera; microphone al"
               />
             )}
@@ -213,7 +214,9 @@ const Wrapper = styled.section`
   .3dmodel-wrapper {
     margin: auto;
   }
-
+  .VRiframe {
+    margin-top: 2rem;
+  }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     padding: 0 2.4rem;
   }

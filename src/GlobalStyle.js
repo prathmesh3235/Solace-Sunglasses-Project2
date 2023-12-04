@@ -754,4 +754,9 @@ input, textarea{
       color: rgb(54, 79, 107);  
       
     }
+    @media (max-width: 1024px) {
+    .product-page-three h1{
+      margin-top:-6rem;
+    }
+  }
 `;
