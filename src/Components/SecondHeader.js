@@ -26,7 +26,7 @@ const SecondHeader = ({ userId, onClickJetztKaufen }) => {
     console.log("handleClick Jetzt Kaufen", str);
     if (userId) {
       // Update the database
-      onClickJetztKaufen(str + " " + new Date());
+      onClickJetztKaufen(JSON.stringify(str) + " " + new Date());
     }
   };
 
