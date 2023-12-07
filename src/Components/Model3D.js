@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 const Model3D = ({ product }) => {
   const [section, setSection] = useState(3);
-  const imageUrl = "images/3dproduct" + product + "." + section + ".png";
+  // const imageUrl = "images/3dproduct" + product + "." + section + ".png";
+  const imageUrl = "images/3dproduct1" + "." + section + ".png";
   const Wrapper = styled.section`
     display: flex;
     justify-content: center;
