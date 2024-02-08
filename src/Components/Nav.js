@@ -118,7 +118,7 @@ return (
     <ul className="navbar-lists">
       <li>
         <NavLink
-          to="/"
+          to="/home"
           className="navbar-link "
           onClick={() => setMenuIcon(false)}>
           Home
