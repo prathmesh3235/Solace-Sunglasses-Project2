@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-const Model3D = ({ product }) => {
+const Model3D = ({ product, mode}) => {
   const [section, setSection] = useState(3);
   // const imageUrl = "images/3dproduct" + product + "." + section + ".png";
-  const imageUrl = "images/3dproduct1" + "." + section + ".png";
+  let imageUrl
+  
+  if (mode=='3') {
+    imageUrl = "images/3dproduct1" + "." + section + ".png";
+  }
+  else if (mode=='4') {
+    imageUrl = "images/Gold_Female1" + "." + section + ".png";
+  }
+
   const Wrapper = styled.section`
     display: flex;
     justify-content: center;

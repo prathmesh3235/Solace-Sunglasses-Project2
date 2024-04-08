@@ -95,24 +95,13 @@ const SingleProduct = () => {
               <Videosection userId={userId} product={product} />
             ) : mode == "3" ? (
               <>
-                <Model3D className="3dmodel-wrapper" product={product_id} />
-                {/* <h4
-                // className="3d-modelHeading"
-                // style={{
-                //   color: "rgb(54, 79, 107)",
-                //   "font-size": "2rem",
-                //   padding: "4rem",
-                //   "text-align": "left",
-                //   "margin-bottom": "-57rem",
-                // }}
-                >
-                  {" "}
-                  “Bewegen Sie einfach Ihre Maus über das Bild oder tippen Sie
-                  im Bild auf verschiedene Stellen, um eine 3D Ansicht der
-                  Brille zu erhalten”.
-                </h4> */}
+                <Model3D className="3dmodel-wrapper" product={product_id} mode={mode} />
               </>
-            ) : (
+            ) :  mode == "4" ? (
+              <>
+                <Model3D className="3dmodel-wrapper" product={product_id} mode={mode} />
+              </>
+            ) :(
               <iframe
                 className="VRiframe"
                 src={
